@@ -8,11 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		9D46863B20DD861600C7CDA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D46863A20DD861600C7CDA9 /* AppDelegate.swift */; };
-		9D46863D20DD861600C7CDA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D46863C20DD861600C7CDA9 /* ViewController.swift */; };
+		9D46863D20DD861600C7CDA9 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D46863C20DD861600C7CDA9 /* MasterViewController.swift */; };
 		9D46864020DD861600C7CDA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D46863E20DD861600C7CDA9 /* Main.storyboard */; };
 		9D46864220DD861900C7CDA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D46864120DD861900C7CDA9 /* Assets.xcassets */; };
 		9D46864520DD861900C7CDA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D46864320DD861900C7CDA9 /* LaunchScreen.storyboard */; };
 		9D46865020DD861900C7CDA9 /* Try_CustomContainerViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D46864F20DD861900C7CDA9 /* Try_CustomContainerViewControllerTests.swift */; };
+		9D46865C20DD8A9800C7CDA9 /* RedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D46865B20DD8A9800C7CDA9 /* RedViewController.swift */; };
+		9D46865E20DD8AAC00C7CDA9 /* GreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D46865D20DD8AAC00C7CDA9 /* GreenViewController.swift */; };
+		9D46866020DD8AC600C7CDA9 /* BlueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D46865F20DD8AC600C7CDA9 /* BlueViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +31,7 @@
 /* Begin PBXFileReference section */
 		9D46863720DD861600C7CDA9 /* Try_CustomContainerViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Try_CustomContainerViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D46863A20DD861600C7CDA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9D46863C20DD861600C7CDA9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9D46863C20DD861600C7CDA9 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		9D46863F20DD861600C7CDA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9D46864120DD861900C7CDA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D46864420DD861900C7CDA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +39,10 @@
 		9D46864B20DD861900C7CDA9 /* Try_CustomContainerViewControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Try_CustomContainerViewControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D46864F20DD861900C7CDA9 /* Try_CustomContainerViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Try_CustomContainerViewControllerTests.swift; sourceTree = "<group>"; };
 		9D46865120DD861900C7CDA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D46865A20DD86FA00C7CDA9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		9D46865B20DD8A9800C7CDA9 /* RedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedViewController.swift; sourceTree = "<group>"; };
+		9D46865D20DD8AAC00C7CDA9 /* GreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenViewController.swift; sourceTree = "<group>"; };
+		9D46865F20DD8AC600C7CDA9 /* BlueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,11 +85,15 @@
 			isa = PBXGroup;
 			children = (
 				9D46863A20DD861600C7CDA9 /* AppDelegate.swift */,
-				9D46863C20DD861600C7CDA9 /* ViewController.swift */,
+				9D46863C20DD861600C7CDA9 /* MasterViewController.swift */,
 				9D46863E20DD861600C7CDA9 /* Main.storyboard */,
 				9D46864120DD861900C7CDA9 /* Assets.xcassets */,
 				9D46864320DD861900C7CDA9 /* LaunchScreen.storyboard */,
 				9D46864620DD861900C7CDA9 /* Info.plist */,
+				9D46865A20DD86FA00C7CDA9 /* README.md */,
+				9D46865B20DD8A9800C7CDA9 /* RedViewController.swift */,
+				9D46865D20DD8AAC00C7CDA9 /* GreenViewController.swift */,
+				9D46865F20DD8AC600C7CDA9 /* BlueViewController.swift */,
 			);
 			path = Try_CustomContainerViewController;
 			sourceTree = "<group>";
@@ -197,7 +208,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D46863D20DD861600C7CDA9 /* ViewController.swift in Sources */,
+				9D46865E20DD8AAC00C7CDA9 /* GreenViewController.swift in Sources */,
+				9D46863D20DD861600C7CDA9 /* MasterViewController.swift in Sources */,
+				9D46865C20DD8A9800C7CDA9 /* RedViewController.swift in Sources */,
+				9D46866020DD8AC600C7CDA9 /* BlueViewController.swift in Sources */,
 				9D46863B20DD861600C7CDA9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
