@@ -21,12 +21,25 @@ class Try_CustomContainerViewControllerTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testStateMachine() {
+        let sm = StateMachine()
+        XCTAssert(sm.currentState == .red)
+        XCTAssert(sm.nextState(event: .cancel) == .red)
+
+        XCTAssert(sm.nextState(event: .done) == .green)
+        XCTAssert(sm.nextState(event: .done) == .blue)
+        XCTAssert(sm.nextState(event: .done) == .red)
+
+        XCTAssert(sm.nextState(event: .done) == .green)
+        XCTAssert(sm.nextState(event: .cancel) == .red)
+
+        XCTAssert(sm.nextState(event: .done) == .green)
+        XCTAssert(sm.nextState(event: .done) == .blue)
+        XCTAssert(sm.nextState(event: .cancel) == .red)
+
     }
     
-    func testPerformanceExample() {
+    func xtestPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
             // Put the code you want to measure the time of here.
