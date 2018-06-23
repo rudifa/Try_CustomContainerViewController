@@ -25,14 +25,9 @@ class StateMachine: NSObject {
         case (.green, .done): state = .blue
         case (.blue, .done): state = .red
         case (_, .cancel): state = .red
-//        default: break
         }
         return state
     }
-
-//    func state() -> State {
-//        return state
-//    }
 
     var currentState: State {
         get {
