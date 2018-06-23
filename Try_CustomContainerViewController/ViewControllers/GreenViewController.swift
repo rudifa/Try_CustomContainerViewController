@@ -10,7 +10,7 @@ import UIKit
 
 class GreenViewController: UIViewController {
 
-    var onReturn : ((String) -> ())?
+    var onReturn : ((Event, String) -> ())?
     var masterDelegate: MasterDelegate?
 
     override func viewDidLoad() {
@@ -19,13 +19,13 @@ class GreenViewController: UIViewController {
     }
 
     @IBAction func cancelButtonPressed(_ sender: Any) {
-        masterDelegate?.onReturnFromChildViewController(result: "Green cancelled dlg")
-        onReturn?("Green cancelled cb")
+        masterDelegate?.onReturnFromChildViewController(event: .cancel, result: "Green cancelled dlg")
+        onReturn?(.cancel, "Green cancelled cb")
     }
 
     @IBAction func doneBUttonPressed(_ sender: Any) {
-        masterDelegate?.onReturnFromChildViewController(result: "Green done dlg")
-        onReturn?("Green done cb")
+        masterDelegate?.onReturnFromChildViewController(event: .done, result: "Green done dlg")
+        onReturn?(.done, "Green done cb")
     }
 
 }

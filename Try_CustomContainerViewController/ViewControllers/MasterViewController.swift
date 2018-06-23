@@ -9,7 +9,7 @@
 import UIKit
 
 protocol MasterDelegate: class {
-    func onReturnFromChildViewController(result: String)
+    func onReturnFromChildViewController(event: Event, result: String)
 }
 
 
@@ -49,27 +49,30 @@ class MasterViewController: UIViewController, MasterDelegate {
     private func setupView() {
 //        redViewController.masterDelegate = self
         redViewController.onReturn = onReturnFromChildViewController
-        greenViewController.masterDelegate = self
+//        greenViewController.masterDelegate = self
         greenViewController.onReturn = onReturnFromChildViewController
-        blueViewController.masterDelegate = self
+//        blueViewController.masterDelegate = self
         blueViewController.onReturn = onReturnFromChildViewController
        updateView()
     }
 
     func updateView() {
-        if let activeCC = activeChildController {
-            remove(asChildViewController: activeCC)
+        if activeChildController != nil {
+            remove(asChildViewController: activeChildController!)
         }
-        activeChildController = redViewController
+        switch (stateMachine.currentState) {
+        case .red: activeChildController = redViewController
+        case .green: activeChildController = greenViewController
+        case .blue: activeChildController = blueViewController
+        }
         add(asChildViewController: activeChildController!)
-//        } else {
-//            remove(asChildViewController: summaryViewController)
-//            add(asChildViewController: sessionsViewController)
-//        }
     }
 
-    func onReturnFromChildViewController(result: String) {
+    func onReturnFromChildViewController(event: Event, result: String) {
         print("onReturnFromChildViewController:", result)
+
+        _ = stateMachine.nextState(event: event)
+        updateView()
     }
 
     func add(asChildViewController viewController: UIViewController) {

@@ -10,7 +10,7 @@ import UIKit
 
 class RedViewController: UIViewController {
 
-    var onReturn : ((String) -> ())?
+    var onReturn : ((Event, String) -> ())?
     var masterDelegate: MasterDelegate?
 
     override func viewDidLoad() {
@@ -19,13 +19,13 @@ class RedViewController: UIViewController {
     }
 
     @IBAction func cancelButtonPressed(_ sender: Any) {
-        masterDelegate?.onReturnFromChildViewController(result: "Red cancelled dlg")
-        onReturn?("Red cancelled cb")
+        masterDelegate?.onReturnFromChildViewController(event: .cancel, result: "Red cancelled dlg")
+        onReturn?(.cancel, "Red cancelled cb")
     }
 
     @IBAction func doneBUttonPressed(_ sender: Any) {
-        masterDelegate?.onReturnFromChildViewController(result: "Red done dlg")
-        onReturn?("Red done cb")
+        masterDelegate?.onReturnFromChildViewController(event: .done, result: "Red done dlg")
+        onReturn?(.done, "Red done cb")
     }
 
 }
