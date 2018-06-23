@@ -12,6 +12,16 @@ protocol MasterDelegate: class {
     func onReturnFromChildViewController(event: Event, result: String)
 }
 
+func instantiateFromStoryboard<T: UIViewController>() -> T {
+    // load storyboard, instantiate controller and return it
+    let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+    let className = String(describing: T.self)
+    guard let viewController = storyboard.instantiateViewController(withIdentifier: className) as? T else {
+        fatalError("Could not instantiate a view controller with name: \(className)")
+    }
+    return viewController
+}
+
 
 class MasterViewController: UIViewController, MasterDelegate {
 
@@ -23,37 +33,20 @@ class MasterViewController: UIViewController, MasterDelegate {
         super.viewDidLoad()
 
         setupView()
+        updateView()
     }
 
-    private lazy var redViewController: RedViewController = {
-        // load storyboard, instantiate controller and return it
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        var viewController = storyboard.instantiateViewController(withIdentifier: "RedViewController") as! RedViewController
-        return viewController
-    }()
-
-    private lazy var greenViewController: GreenViewController = {
-        // load storyboard, instantiate controller and return it
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        var viewController = storyboard.instantiateViewController(withIdentifier: "GreenViewController") as! GreenViewController
-        return viewController
-    }()
-
-    private lazy var blueViewController: BlueViewController = {
-        // load storyboard, instantiate controller and return it
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        var viewController = storyboard.instantiateViewController(withIdentifier: "BlueViewController") as! BlueViewController
-        return viewController
-    }()
+    private lazy var redViewController: RedViewController = instantiateFromStoryboard()
+    private lazy var greenViewController: GreenViewController = instantiateFromStoryboard()
+    private lazy var blueViewController: BlueViewController = instantiateFromStoryboard()
 
     private func setupView() {
 //        redViewController.masterDelegate = self
-        redViewController.onReturn = onReturnFromChildViewController
 //        greenViewController.masterDelegate = self
-        greenViewController.onReturn = onReturnFromChildViewController
 //        blueViewController.masterDelegate = self
+        redViewController.onReturn = onReturnFromChildViewController
+        greenViewController.onReturn = onReturnFromChildViewController
         blueViewController.onReturn = onReturnFromChildViewController
-       updateView()
     }
 
     func updateView() {
@@ -78,9 +71,8 @@ class MasterViewController: UIViewController, MasterDelegate {
     func add(asChildViewController viewController: UIViewController) {
         // add child
         addChildViewController(viewController)
-        // add child view as subview
+        // add child view as subview and configure it
         view.addSubview(viewController.view)
-        // configure child view
         viewController.view.frame = view.bounds
         viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         // notify child view controller
