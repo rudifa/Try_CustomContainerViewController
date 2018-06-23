@@ -11,7 +11,6 @@ import UIKit
 class RedViewController: UIViewController {
 
     var onReturn : ((String) -> ())?
-
     var masterDelegate: MasterDelegate?
 
     override func viewDidLoad() {
