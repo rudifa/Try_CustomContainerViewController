@@ -15,65 +15,53 @@ protocol MasterDelegate: class {
 
 class MasterViewController: UIViewController, MasterDelegate {
 
+    let stateMachine = StateMachine()
+
+    var activeChildController: UIViewController?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-                setupView()
+        setupView()
     }
 
-//    @IBOutlet weak var segmentedControl: UISegmentedControl!
-
-    private var redViewController: RedViewController = {
-        // load storyboard
+    private lazy var redViewController: RedViewController = {
+        // load storyboard, instantiate controller and return it
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        // instantiate
         var viewController = storyboard.instantiateViewController(withIdentifier: "RedViewController") as! RedViewController
-        // return
         return viewController
     }()
 
-//    private lazy var sessionsViewController: SessionsViewController = {
-//        // load storyboard
-//        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-//        // instantiate
-//        var viewController = storyboard.instantiateViewController(withIdentifier: "SessionsViewController") as! SessionsViewController
-//        // add as child view controller
-//        self.add(asChildViewController: viewController)
-//
-//        return viewController
-//    }()
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//        setupView()
-//    }
+    private lazy var greenViewController: GreenViewController = {
+        // load storyboard, instantiate controller and return it
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        var viewController = storyboard.instantiateViewController(withIdentifier: "GreenViewController") as! GreenViewController
+        return viewController
+    }()
+
+    private lazy var blueViewController: BlueViewController = {
+        // load storyboard, instantiate controller and return it
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        var viewController = storyboard.instantiateViewController(withIdentifier: "BlueViewController") as! BlueViewController
+        return viewController
+    }()
 
     private func setupView() {
-//        setupSegmentedControl()
-        updateView()
+//        redViewController.masterDelegate = self
+        redViewController.onReturn = onReturnFromChildViewController
+        greenViewController.masterDelegate = self
+        greenViewController.onReturn = onReturnFromChildViewController
+        blueViewController.masterDelegate = self
+        blueViewController.onReturn = onReturnFromChildViewController
+       updateView()
     }
 
-//    private func setupSegmentedControl() {
-//        // configure
-//        segmentedControl.removeAllSegments()
-//        segmentedControl.insertSegment(withTitle: "Summary", at: 0, animated: false)
-//        segmentedControl.insertSegment(withTitle: "Sessions", at: 1, animated: false)
-//        segmentedControl.addTarget(self, action: #selector(selectionDidChange(_:)), for: .valueChanged)
-//        // select
-//        segmentedControl.selectedSegmentIndex = 0
-//    }
-//
-//    @objc func selectionDidChange(_ sender: UISegmentedControl) {
-//        updateView()
-//    }
-//
     func updateView() {
-//        if segmentedControl.selectedSegmentIndex == 0 {
-//            remove(asChildViewController: sessionsViewController)
-            redViewController.masterDelegate = self
-            redViewController.onReturn = onReturnFromChildViewController
-            add(asChildViewController: redViewController)
+        if let activeCC = activeChildController {
+            remove(asChildViewController: activeCC)
+        }
+        activeChildController = redViewController
+        add(asChildViewController: activeChildController!)
 //        } else {
 //            remove(asChildViewController: summaryViewController)
 //            add(asChildViewController: sessionsViewController)
@@ -84,7 +72,7 @@ class MasterViewController: UIViewController, MasterDelegate {
         print("onReturnFromChildViewController:", result)
     }
 
-    private func add(asChildViewController viewController: UIViewController) {
+    func add(asChildViewController viewController: UIViewController) {
         // add child
         addChildViewController(viewController)
         // add child view as subview
@@ -96,7 +84,7 @@ class MasterViewController: UIViewController, MasterDelegate {
         viewController.didMove(toParentViewController: self)
     }
 
-    private func remove(asChildViewController viewController: UIViewController) {
+    func remove(asChildViewController viewController: UIViewController) {
         // notify child
         viewController.willMove(toParentViewController: nil)
         // remove child view from superview
