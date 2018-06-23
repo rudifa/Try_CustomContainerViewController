@@ -8,7 +8,12 @@
 
 import UIKit
 
-class MasterViewController: UIViewController {
+protocol MasterDelegate: class {
+    func onReturnFromChildViewController(result: String)
+}
+
+
+class MasterViewController: UIViewController, MasterDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,14 +23,12 @@ class MasterViewController: UIViewController {
 
 //    @IBOutlet weak var segmentedControl: UISegmentedControl!
 
-    private lazy var redViewController: RedViewController = {
+    private var redViewController: RedViewController = {
         // load storyboard
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         // instantiate
         var viewController = storyboard.instantiateViewController(withIdentifier: "RedViewController") as! RedViewController
-        // add as child view controller
-        self.add(asChildViewController: viewController)
-
+        // return
         return viewController
     }()
 
@@ -68,11 +71,17 @@ class MasterViewController: UIViewController {
     func updateView() {
 //        if segmentedControl.selectedSegmentIndex == 0 {
 //            remove(asChildViewController: sessionsViewController)
+            redViewController.masterDelegate = self
+            redViewController.onReturn = onReturnFromChildViewController
             add(asChildViewController: redViewController)
 //        } else {
 //            remove(asChildViewController: summaryViewController)
 //            add(asChildViewController: sessionsViewController)
 //        }
+    }
+
+    func onReturnFromChildViewController(result: String) {
+        print("onReturnFromChildViewController:", result)
     }
 
     private func add(asChildViewController viewController: UIViewController) {

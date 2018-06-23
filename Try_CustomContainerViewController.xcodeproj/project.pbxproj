@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D439A1020DEE1BF00B3263E /* StateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D439A0F20DEE1BF00B3263E /* StateMachine.swift */; };
 		9D46863B20DD861600C7CDA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D46863A20DD861600C7CDA9 /* AppDelegate.swift */; };
 		9D46863D20DD861600C7CDA9 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D46863C20DD861600C7CDA9 /* MasterViewController.swift */; };
 		9D46864020DD861600C7CDA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D46863E20DD861600C7CDA9 /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9D439A0F20DEE1BF00B3263E /* StateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StateMachine.swift; path = Try_CustomContainerViewController/Model/StateMachine.swift; sourceTree = SOURCE_ROOT; };
 		9D46863720DD861600C7CDA9 /* Try_CustomContainerViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Try_CustomContainerViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D46863A20DD861600C7CDA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D46863C20DD861600C7CDA9 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +65,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9D439A0D20DEE11C00B3263E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				9D46863C20DD861600C7CDA9 /* MasterViewController.swift */,
+				9D46865B20DD8A9800C7CDA9 /* RedViewController.swift */,
+				9D46865D20DD8AAC00C7CDA9 /* GreenViewController.swift */,
+				9D46865F20DD8AC600C7CDA9 /* BlueViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		9D439A0E20DEE16D00B3263E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9D439A0F20DEE1BF00B3263E /* StateMachine.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		9D46862E20DD861600C7CDA9 = {
 			isa = PBXGroup;
 			children = (
@@ -84,16 +105,14 @@
 		9D46863920DD861600C7CDA9 /* Try_CustomContainerViewController */ = {
 			isa = PBXGroup;
 			children = (
+				9D439A0E20DEE16D00B3263E /* Model */,
+				9D439A0D20DEE11C00B3263E /* ViewControllers */,
 				9D46863A20DD861600C7CDA9 /* AppDelegate.swift */,
-				9D46863C20DD861600C7CDA9 /* MasterViewController.swift */,
 				9D46863E20DD861600C7CDA9 /* Main.storyboard */,
-				9D46864120DD861900C7CDA9 /* Assets.xcassets */,
 				9D46864320DD861900C7CDA9 /* LaunchScreen.storyboard */,
 				9D46864620DD861900C7CDA9 /* Info.plist */,
 				9D46865A20DD86FA00C7CDA9 /* README.md */,
-				9D46865B20DD8A9800C7CDA9 /* RedViewController.swift */,
-				9D46865D20DD8AAC00C7CDA9 /* GreenViewController.swift */,
-				9D46865F20DD8AC600C7CDA9 /* BlueViewController.swift */,
+				9D46864120DD861900C7CDA9 /* Assets.xcassets */,
 			);
 			path = Try_CustomContainerViewController;
 			sourceTree = "<group>";
@@ -209,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D46865E20DD8AAC00C7CDA9 /* GreenViewController.swift in Sources */,
+				9D439A1020DEE1BF00B3263E /* StateMachine.swift in Sources */,
 				9D46863D20DD861600C7CDA9 /* MasterViewController.swift in Sources */,
 				9D46865C20DD8A9800C7CDA9 /* RedViewController.swift in Sources */,
 				9D46866020DD8AC600C7CDA9 /* BlueViewController.swift in Sources */,
