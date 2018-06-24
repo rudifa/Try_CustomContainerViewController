@@ -10,8 +10,8 @@ import UIKit
 
 class GreenViewController: UIViewController {
 
-    var onReturn : ((Event, String) -> ())?
     var masterDelegate: MasterDelegate?
+    var onReturn : CallbackFunc?
 
     override func viewDidLoad() {
         super.viewDidLoad()

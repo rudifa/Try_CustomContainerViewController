@@ -12,6 +12,8 @@ protocol MasterDelegate: class {
     func onReturnFromChildViewController(event: Event, result: String)
 }
 
+typealias CallbackFunc = (Event, String) -> ()
+
 func instantiateFromStoryboard<T: UIViewController>() -> T {
     // load storyboard, instantiate controller and return it
     let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
@@ -32,15 +34,15 @@ class MasterViewController: UIViewController, MasterDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupView()
-        updateView()
+        setupChildViewControllers()
+        updateChildViewControllers()
     }
 
     private lazy var redViewController: RedViewController = instantiateFromStoryboard()
     private lazy var greenViewController: GreenViewController = instantiateFromStoryboard()
     private lazy var blueViewController: BlueViewController = instantiateFromStoryboard()
 
-    private func setupView() {
+    private func setupChildViewControllers() {
 //        redViewController.masterDelegate = self
 //        greenViewController.masterDelegate = self
 //        blueViewController.masterDelegate = self
@@ -49,7 +51,7 @@ class MasterViewController: UIViewController, MasterDelegate {
         blueViewController.onReturn = onReturnFromChildViewController
     }
 
-    func updateView() {
+    func updateChildViewControllers() {
         if activeChildController != nil {
             remove(asChildViewController: activeChildController!)
         }
@@ -65,7 +67,7 @@ class MasterViewController: UIViewController, MasterDelegate {
         print("onReturnFromChildViewController:", result)
 
         _ = stateMachine.nextState(event: event)
-        updateView()
+        updateChildViewControllers()
     }
 
     func add(asChildViewController viewController: UIViewController) {
