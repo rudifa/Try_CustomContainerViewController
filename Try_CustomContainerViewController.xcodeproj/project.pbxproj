@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9D439A1020DEE1BF00B3263E /* StateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D439A0F20DEE1BF00B3263E /* StateMachine.swift */; };
+		9D439A1320E050C200B3263E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9D439A1220E050C200B3263E /* README.md */; };
 		9D46863B20DD861600C7CDA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D46863A20DD861600C7CDA9 /* AppDelegate.swift */; };
 		9D46863D20DD861600C7CDA9 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D46863C20DD861600C7CDA9 /* MasterViewController.swift */; };
 		9D46864020DD861600C7CDA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D46863E20DD861600C7CDA9 /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		9D439A0F20DEE1BF00B3263E /* StateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StateMachine.swift; path = Try_CustomContainerViewController/Model/StateMachine.swift; sourceTree = SOURCE_ROOT; };
+		9D439A1220E050C200B3263E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9D46863720DD861600C7CDA9 /* Try_CustomContainerViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Try_CustomContainerViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D46863A20DD861600C7CDA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D46863C20DD861600C7CDA9 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -41,7 +43,6 @@
 		9D46864B20DD861900C7CDA9 /* Try_CustomContainerViewControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Try_CustomContainerViewControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D46864F20DD861900C7CDA9 /* Try_CustomContainerViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Try_CustomContainerViewControllerTests.swift; sourceTree = "<group>"; };
 		9D46865120DD861900C7CDA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9D46865A20DD86FA00C7CDA9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9D46865B20DD8A9800C7CDA9 /* RedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedViewController.swift; sourceTree = "<group>"; };
 		9D46865D20DD8AAC00C7CDA9 /* GreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenViewController.swift; sourceTree = "<group>"; };
 		9D46865F20DD8AC600C7CDA9 /* BlueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +88,7 @@
 		9D46862E20DD861600C7CDA9 = {
 			isa = PBXGroup;
 			children = (
+				9D439A1220E050C200B3263E /* README.md */,
 				9D46863920DD861600C7CDA9 /* Try_CustomContainerViewController */,
 				9D46864E20DD861900C7CDA9 /* Try_CustomContainerViewControllerTests */,
 				9D46863820DD861600C7CDA9 /* Products */,
@@ -111,7 +113,6 @@
 				9D46863E20DD861600C7CDA9 /* Main.storyboard */,
 				9D46864320DD861900C7CDA9 /* LaunchScreen.storyboard */,
 				9D46864620DD861900C7CDA9 /* Info.plist */,
-				9D46865A20DD86FA00C7CDA9 /* README.md */,
 				9D46864120DD861900C7CDA9 /* Assets.xcassets */,
 			);
 			path = Try_CustomContainerViewController;
@@ -209,6 +210,7 @@
 			files = (
 				9D46864520DD861900C7CDA9 /* LaunchScreen.storyboard in Resources */,
 				9D46864220DD861900C7CDA9 /* Assets.xcassets in Resources */,
+				9D439A1320E050C200B3263E /* README.md in Resources */,
 				9D46864020DD861600C7CDA9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
