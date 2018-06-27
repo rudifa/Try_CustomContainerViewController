@@ -16,7 +16,7 @@ enum Event {
     case cancel, done
 }
 
-class StateMachine: NSObject {
+class StateMachine {
     private var state: State = .red
 
     func nextState(event: Event) -> State {
