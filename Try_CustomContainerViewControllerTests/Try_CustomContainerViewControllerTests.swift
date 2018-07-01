@@ -9,6 +9,8 @@
 import XCTest
 @testable import Try_CustomContainerViewController
 
+
+
 class Try_CustomContainerViewControllerTests: XCTestCase {
     
     override func setUp() {
@@ -39,11 +41,54 @@ class Try_CustomContainerViewControllerTests: XCTestCase {
 
     }
     
-    func xtestPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testStateMachine2() {
+
+        enum State {
+            case black, red, green, blue
         }
+
+        enum Event {
+            case done, cancel, reset
+        }
+
+        typealias State_Event = HashablePair<State, Event>
+
+        let dictionary: Dictionary<State_Event, State> = [
+            State_Event(.black, .cancel): .red,
+            State_Event(.black, .done): .black,
+            State_Event(.red, .cancel): .black,
+            State_Event(.red, .done): .green,
+            State_Event(.green, .cancel): .black,
+            State_Event(.green, .done): .blue,
+            State_Event(.blue, .cancel): .black,
+            State_Event(.blue, .done): .red,
+            ]
+
+        for (key, _) in dictionary {
+            print("hash of key=", key.hashValue)
+        }
+
     }
-    
+
+
+    func testStateMachine3() {
+
+        let sm = StateMachine3<State, Event>(state: .red)
+
+        XCTAssert(sm.state == .red)
+        XCTAssert(sm.nextState(event: .cancel) == .red)
+
+        XCTAssert(sm.nextState(event: .done) == .green)
+        XCTAssert(sm.nextState(event: .done) == .blue)
+        XCTAssert(sm.nextState(event: .done) == .red)
+
+        XCTAssert(sm.nextState(event: .done) == .green)
+        XCTAssert(sm.nextState(event: .cancel) == .red)
+
+        XCTAssert(sm.nextState(event: .done) == .green)
+        XCTAssert(sm.nextState(event: .done) == .blue)
+        XCTAssert(sm.nextState(event: .cancel) == .red)
+
+    }
+
 }
