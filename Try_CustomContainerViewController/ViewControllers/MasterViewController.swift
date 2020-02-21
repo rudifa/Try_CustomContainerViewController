@@ -27,7 +27,7 @@ func instantiateFromStoryboard<T: UIViewController>() -> T {
 
 class MasterViewController: UIViewController, MasterDelegate {
 
-    let stateMachine = StateMachine()
+    let stateMachine = StateMachine1()
 
     var activeChildController: UIViewController?
 

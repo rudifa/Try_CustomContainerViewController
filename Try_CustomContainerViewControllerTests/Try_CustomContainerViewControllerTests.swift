@@ -23,8 +23,8 @@ class Try_CustomContainerViewControllerTests: XCTestCase {
         super.tearDown()
     }
     
-    func testStateMachine() {
-        let sm = StateMachine()
+    func testStateMachine1() {
+        let sm = StateMachine1()
         XCTAssert(sm.currentState == .red)
         XCTAssert(sm.nextState(event: .cancel) == .red)
 
