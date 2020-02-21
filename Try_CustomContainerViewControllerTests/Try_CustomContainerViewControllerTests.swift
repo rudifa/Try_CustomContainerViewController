@@ -6,25 +6,22 @@
 //  Copyright © 2018 Rudolf Farkas. All rights reserved.
 //
 
-import XCTest
 @testable import Try_CustomContainerViewController
-
-
+import XCTest
 
 class Try_CustomContainerViewControllerTests: XCTestCase {
-    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
-    
+
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
+
     func testStateMachine1() {
-        let sm = StateMachine1()
+        var sm = StateMachine1()
         XCTAssert(sm.currentState == .red)
         XCTAssert(sm.nextState(event: .cancel) == .red)
 
@@ -38,11 +35,9 @@ class Try_CustomContainerViewControllerTests: XCTestCase {
         XCTAssert(sm.nextState(event: .done) == .green)
         XCTAssert(sm.nextState(event: .done) == .blue)
         XCTAssert(sm.nextState(event: .cancel) == .red)
-
     }
-    
-    func testStateMachine2() {
 
+    func testStateMachine2() {
         enum State {
             case black, red, green, blue
         }
@@ -53,7 +48,7 @@ class Try_CustomContainerViewControllerTests: XCTestCase {
 
         typealias State_Event = HashablePair<State, Event>
 
-        let dictionary: Dictionary<State_Event, State> = [
+        let dictionary: [State_Event: State] = [
             State_Event(.black, .cancel): .red,
             State_Event(.black, .done): .black,
             State_Event(.red, .cancel): .black,
@@ -62,18 +57,15 @@ class Try_CustomContainerViewControllerTests: XCTestCase {
             State_Event(.green, .done): .blue,
             State_Event(.blue, .cancel): .black,
             State_Event(.blue, .done): .red,
-            ]
+        ]
 
         for (key, _) in dictionary {
             print("hash of key=", key.hashValue)
         }
-
     }
 
-
     func testStateMachine3() {
-
-        let sm = StateMachine3<State, Event>(state: .red)
+        var sm = StateMachine3<State, Event>(state: .red)
 
         XCTAssert(sm.state == .red)
         XCTAssert(sm.nextState(event: .cancel) == .red)
@@ -88,7 +80,5 @@ class Try_CustomContainerViewControllerTests: XCTestCase {
         XCTAssert(sm.nextState(event: .done) == .green)
         XCTAssert(sm.nextState(event: .done) == .blue)
         XCTAssert(sm.nextState(event: .cancel) == .red)
-
     }
-
 }

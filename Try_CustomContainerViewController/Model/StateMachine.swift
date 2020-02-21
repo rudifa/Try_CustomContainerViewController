@@ -16,10 +16,10 @@ enum Event {
     case cancel, done
 }
 
-class StateMachine1 {
+struct StateMachine1 {
     private var state: State = .red
 
-    func nextState(event: Event) -> State {
+    mutating func nextState(event: Event) -> State {
         switch (state, event) {
         case (.red, .done): state = .green
         case (.green, .done): state = .blue
@@ -30,33 +30,26 @@ class StateMachine1 {
     }
 
     var currentState: State {
-        get {
-            return state
-        }
+        return state
     }
 }
 
-
-class StateMachine2 {
-
+struct StateMachine2 {
     private var state: State = .red
 
     typealias State_Event = HashablePair<State, Event>
 
-    let dictionary: Dictionary<State_Event, State> = [
+    let dictionary: [State_Event: State] = [
         State_Event(.red, .done): .green,
         State_Event(.green, .done): .blue,
         State_Event(.blue, .done): .red,
         State_Event(.red, .cancel): .green,
         State_Event(.green, .cancel): .blue,
         State_Event(.blue, .done): .red,
-       ]
-
+    ]
 }
 
-
-class StateMachine3<S, E> {
-
+struct StateMachine3<S, E> {
     private(set) var state: S!
 
     init(state: S) {
@@ -65,8 +58,7 @@ class StateMachine3<S, E> {
 }
 
 extension StateMachine3 where S == State, E == Event {
-
-    func nextState(event: Event) -> State {
+    mutating func nextState(event: Event) -> State {
         switch (state, event) {
         case (.red, .done): state = .green
         case (.green, .done): state = .blue
@@ -77,5 +69,3 @@ extension StateMachine3 where S == State, E == Event {
         return state
     }
 }
-
-
